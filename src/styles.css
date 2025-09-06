@@ -1,0 +1,16 @@
+:root{
+  --bg: #FFF7FA;
+  --text: #3B3B3B;
+  --sub: #6B7280;
+}
+*{box-sizing: border-box}
+html,body,#root{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  color: var(--text);
+  background: linear-gradient(180deg,#FFF5F8,#FFF9FB);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+button{font:inherit}

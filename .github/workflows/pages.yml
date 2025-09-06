@@ -2,8 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]   
-    
+    branches: [ main ]  # 你的默认分支不是 main 就改成对应的，比如 master
+
 permissions:
   contents: read
   pages: write
@@ -26,12 +26,12 @@ jobs:
           node-version: 20
 
       - name: Install
-        run: npm ci
+        run: npm install   # 如果你有 package-lock.json 也可以用 npm ci
 
       - name: Build
         run: npm run build
 
-      # SPA 刷新/404 兼容：把 index.html 复制成 404.html（可选，但推荐）
+      # SPA 刷新 404 兼容（推荐保留）
       - name: Copy 404.html
         run: cp dist/index.html dist/404.html
 
@@ -49,3 +49,4 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+

@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]  # 你的默认分支不是 main 就改成对应的，比如 master
+    branches: [ main ]  
 
 permissions:
   contents: read
@@ -25,14 +25,13 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install
-        run: npm install   # 如果你有 package-lock.json 也可以用 npm ci
+      - name: Install deps
+        run: npm install       # 没有 package-lock.json 用 npm install 最稳
 
       - name: Build
         run: npm run build
 
-      # SPA 刷新 404 兼容（推荐保留）
-      - name: Copy 404.html
+      - name: SPA 404 fallback
         run: cp dist/index.html dist/404.html
 
       - name: Upload artifact
@@ -49,4 +48,3 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
-

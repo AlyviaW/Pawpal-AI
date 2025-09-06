@@ -6,6 +6,7 @@ Gentle, elegant pet-care demo for **DVHacks**. Upload a short activity video or 
 - **Live Demo:** https://your-demo.vercel.app
 - **GitHub Repo:** https://github.com/yourname/pawpal-ai
 
+
 ## 🚀 Quickstart
 ```bash
 npm install
